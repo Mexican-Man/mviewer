@@ -76,7 +76,7 @@ func main() {
 				if collectionBar.Selected() < 0 {
 					return
 				}
-				cursor, err := client.Database(databaseBar.SelectedItem()).Collection(collectionBar.SelectedItem()).Find(context.TODO(), documentFilter, options.Find().SetLimit(20))
+				cursor, err := client.Database(databaseBar.SelectedItem()).Collection(collectionBar.SelectedItem()).Find(context.TODO(), documentFilter, options.Find().SetLimit(100))
 				if err != nil {
 					panic(err)
 				}
