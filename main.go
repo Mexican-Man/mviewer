@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/marcusolsson/tui-go"
+	"github.com/Mexican-Man/tui-go"
 	"github.com/spf13/cobra"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -76,7 +76,7 @@ func main() {
 				if collectionBar.Selected() < 0 {
 					return
 				}
-				cursor, err := client.Database(databaseBar.SelectedItem()).Collection(collectionBar.SelectedItem()).Find(context.TODO(), documentFilter, options.Find().SetLimit(100))
+				cursor, err := client.Database(databaseBar.SelectedItem()).Collection(collectionBar.SelectedItem()).Find(context.TODO(), documentFilter, options.Find().SetLimit(400))
 				if err != nil {
 					panic(err)
 				}
