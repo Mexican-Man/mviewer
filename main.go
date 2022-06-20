@@ -76,7 +76,7 @@ func main() {
 				if collectionBar.Selected() < 0 {
 					return
 				}
-				cursor, err := client.Database(databaseBar.SelectedItem()).Collection(collectionBar.SelectedItem()).Find(context.TODO(), documentFilter, options.Find().SetLimit(400))
+				cursor, err := client.Database(databaseBar.SelectedItem()).Collection(collectionBar.SelectedItem()).Find(context.TODO(), documentFilter, options.Find().SetLimit(50))
 				if err != nil {
 					panic(err)
 				}
@@ -89,7 +89,7 @@ func main() {
 					}
 
 					// Parse BSON to regular JSON
-					documentsBar.AddItems(cursor.Current.String())
+					documentsBar.AddItems(cursor.Current.String()[:200])
 				}
 			})
 
@@ -133,7 +133,7 @@ func main() {
 			// Marshal text into BSON and use that to filter the documents
 			input.OnSubmit(func(e *tui.Entry) {
 				documentFilter = bson.M{}
-				bson.UnmarshalExtJSON([]byte(e.Text()), true, &documentFilter)
+				bson.UnmarshalExtJSON([]byte(e.Text()), false, &documentFilter)
 				collectionBar.Select(collectionBar.Selected())
 				documentsBar.Select(-1)
 			})

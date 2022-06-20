@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "go build -o ${workspaceFolder}/bin/mviewer",
             "options": {
-                "cwd": "${workspaceFolder}/cmd"
+                "cwd": "${workspaceFolder}"
             },
             "detail": "Compile the tool.",
             "group": "build",
