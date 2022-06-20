@@ -1,4 +1,4 @@
-module github.com/Mexican-Man/go-mongo-viewer
+module github.com/Mexican-Man/mviewer
 
 go 1.18
 
@@ -25,3 +25,5 @@ require (
 	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e // indirect
 	golang.org/x/text v0.3.5 // indirect
 )
+
+replace github.com/marcusolsson/tui-go => github.com/Mexican-Man/tui-go v0.4.1

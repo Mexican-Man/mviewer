@@ -6,7 +6,7 @@
         {
             "label": "Build cmd",
             "type": "shell",
-            "command": "go build -o ${workspaceFolder}/build",
+            "command": "go build -o ${workspaceFolder}/bin/mviewer",
             "options": {
                 "cwd": "${workspaceFolder}/cmd"
             },
